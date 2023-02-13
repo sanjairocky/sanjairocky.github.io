@@ -1,1 +1,1 @@
-window.servers=["","http://localhost:8081","http://192.168.0.111:8081"],window.serviceUrl=window.servers[0];
+window.servers=["","http://localhost:8081","http://192.168.0.111:8081","https://localhost:8082","https://192.168.0.111:8082"],window.serviceUrl=window.servers[0];
