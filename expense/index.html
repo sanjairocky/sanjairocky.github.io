@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Splitter</title>
+    <script src="main.js" defer></script>
+    <script src="expense.js"></script>
+    <script src="parser.js"></script>
+    <script src="sw.js"></script>
+    <link rel="icon" href="favicon.ico" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Expense Splitter" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body
+    style="
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <input
+        type="file"
+        id="myFile"
+        name="filename"
+        accept=".csv"
+        style="padding: 30px"
+      />
+      <div style="display: flex">
+        <button onclick="javascript:window.location.href= 'template.csv'">
+          Template
+        </button>
+        <span style="padding: 5px"></span>
+        <button onclick="javascript:window.location.reload()">Clear</button>
+      </div>
+    </div>
+    <div id="result"></div>
+  </body>
+</html>

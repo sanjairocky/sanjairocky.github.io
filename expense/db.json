@@ -1,0 +1,36 @@
+{
+  "trips": [
+    {
+      "id": 1,
+      "budget": 10865,
+      "persons": {
+        "Sanjai": {
+          "spent": 2984,
+          "amount": 150.74,
+          "share": 2833.25
+        }
+      },
+      "transactions": [
+        {
+          "from": "Ajay",
+          "to": "Sanjai",
+          "amount": 150.74
+        }
+      ],
+      "expenses": [
+        {
+          "id": 35,
+          "description": "elaneer + grapes",
+          "totalAmount": 90,
+          "persons": {
+            "Sanjai": 90
+          },
+          "personCount": 1,
+          "balance": {
+            "Sanjai": 0
+          }
+        }
+      ]
+    }
+  ]
+}
