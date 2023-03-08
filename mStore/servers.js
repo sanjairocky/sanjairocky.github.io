@@ -1,1 +1,0 @@
-window.servers=["","http://localhost:8081","http://192.168.0.111:8081","https://m-store.cyclic.app"],window.serviceUrl=window.servers[0];
