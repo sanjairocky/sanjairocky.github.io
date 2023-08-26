@@ -23,13 +23,12 @@
     <div class="cards">
       <div class="card">
         <p><i class="fas fa-tint" style="color:#00add6;"></i> Water Level</p>
-        <p><span class="reading"><span id="level">%LEVEL%</span> &percnt;</span></p>
-        <p><progress id="file" value="%LEVEL%" max="100"> %LEVEL% % </progress></p>
+        <p><span class="reading"><span id="level">50 %</span> &percnt;</span></p>
+        <p><progress id="levelProgress" value="50" max="100"> 50 </progress></p>
       </div>
 
       <div class="card">
         <p><i class="fas fa-tint" style="color:#00add6;"></i> Motor switch</p>
-        <p><progress id="file" value="%LEVEL%" max="100"> %LEVEL% % </progress></p>
       </div>
     </div>
   </div>
@@ -53,6 +52,8 @@ if (!!window.EventSource) {
  source.addEventListener('level', function(e) {
   console.log("temperature", e.data);
   document.getElementById("level").innerHTML = e.data;
+     document.getElementById("levelProgress").value = e.data;
+
  }, false);
 }
 </script>
