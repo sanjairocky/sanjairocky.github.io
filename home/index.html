@@ -17,13 +17,18 @@
 </head>
 <body>
   <div class="topnav">
-    <h1>Water Tank Level</h1>
+    <h1>Home Automation</h1>
   </div>
   <div class="content">
     <div class="cards">
       <div class="card">
         <p><i class="fas fa-tint" style="color:#00add6;"></i> Water Level</p>
         <p><span class="reading"><span id="level">%LEVEL%</span> &percnt;</span></p>
+        <p><progress id="file" value="%LEVEL%" max="100"> %LEVEL% % </progress></p>
+      </div>
+
+      <div class="card">
+        <p><i class="fas fa-tint" style="color:#00add6;"></i> Motor switch</p>
         <p><progress id="file" value="%LEVEL%" max="100"> %LEVEL% % </progress></p>
       </div>
     </div>
