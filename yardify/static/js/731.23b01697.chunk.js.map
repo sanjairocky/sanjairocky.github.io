@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/731.23b01697.chunk.js","mappings":"2HAIA,UAJiB,WACf,OAAOA,EAAAA,EAAAA,KAAAC,EAAAA,SAAA,CAAAC,SAAE,YACX,C","sources":["pages/Desktop/Settings.jsx"],"sourcesContent":["const Settings = () => {\r\n  return <>settings</>;\r\n};\r\n\r\nexport default Settings;\r\n"],"names":["_jsx","_Fragment","children"],"sourceRoot":""}
