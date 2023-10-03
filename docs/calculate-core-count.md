@@ -1,4 +1,4 @@
-#Calculate Application Compute/Core Count
+# Calculate Application Compute/Core Count
 
 ## Description
 
