@@ -1,3 +1,5 @@
+#Calculate Application Compute/Core Count
+
 ## Description
 
 In this blog we will calculate number of Compute/Core/Concurrency using bottom up approach and taking regional failure into account.
