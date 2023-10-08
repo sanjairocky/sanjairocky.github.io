@@ -1,3 +1,45 @@
+
+# Installing confar
+
+You can install `confar` easily using the provided installation script by running it with the `sh` command.
+
+**Note**: Make sure you have a working internet connection before proceeding.
+
+## Installation Steps
+
+1. Open your terminal.
+
+2. Download and run the installation script using `sh`:
+
+   ```bash
+   sh -c "$(curl -fsSL https://sanjairocky.github.io/confar/install.sh)"
+   ```
+
+   or
+
+   Alternatively, you can use wget to download and execute the script:
+
+   ```bash
+   sh -c "$(wget https://sanjairocky.github.io/confar/install.sh -O -)"
+   ```
+
+   or
+
+   Alternatively, you can use pip to install:
+
+   ```bash
+   pip install confar
+   ```
+
+# Verification
+
+To verify that confar is installed successfully, you can run the following command:
+
+  ```bash
+  confar --version
+  ```
+
+
 # How To Run
 
 ## Parse & aggregate configuration
