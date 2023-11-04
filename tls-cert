@@ -10,3 +10,15 @@ openssl genrsa -out server.key 2048
 openssl req -new -out server.csr -key server.key
 openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 360
 openssl x509 -in server.crt -sha1 -noout -fingerprint
+
+// optipn 3
+
+openssl ecparam -out ca.key -name prime256v1 -genkey
+openssl req -new -sha256 -key ca.key -out ca.csr
+openssl x509 -req -sha256 -days 365 -in ca.csr -signkey ca.key -out ca.crt
+
+openssl ecparam -out server.key -name prime256v1 -genkey
+openssl req -new -sha256 -key server.key -out server.csr
+openssl x509 -req -in server.csr -CA  ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365 -sha256
+
+openssl x509 -in server.crt -text -noout
