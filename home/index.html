@@ -59,7 +59,7 @@
   myHome.subscribe('homeassistant/switch/water_motor', (msg) => {
     console.log('Received message on homeassistant/switch/water_motor:', msg);
     document.getElementById("motorswitch").innerHTML = msg === 'ON' ? 'ON' : 'OFF';
-    document.getElementById("motorswitchinput").value = msg === 'ON';
+    document.getElementById("motorswitchinput").checked = msg === 'ON';
   });
 
 
