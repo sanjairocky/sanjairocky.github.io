@@ -14,6 +14,9 @@
     .cards { max-width: 800px; margin: 0 auto; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
     .reading { font-size: 1.4rem; }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.1.0/mqtt.min.js"></script>
+  <script src="https://sanjairocky.github.io/lib/EventEmitter.js"></script>
+  <script src="https://sanjairocky.github.io/lib/Home.js"></script>
 </head>
 <body>
   <div class="topnav">
@@ -23,7 +26,7 @@
     <div class="cards">
       <div class="card">
         <p><i class="fas fa-tint" style="color:#00add6;"></i> Water Level</p>
-        <p><span class="reading"><span id="level">50 %</span> &percnt;</span></p>
+        <p><span class="reading"><span id="level">50</span> &percnt;</span></p>
         <p><progress id="levelProgress" value="50" max="100"> 50 </progress></p>
       </div>
 
@@ -33,29 +36,22 @@
     </div>
   </div>
 <script>
-if (!!window.EventSource) {
- var source = new EventSource('https://water-tank.rocky.home:4000/events');
- 
- source.addEventListener('open', function(e) {
-  console.log("Events Connected");
- }, false);
- source.addEventListener('error', function(e) {
-  if (e.target.readyState != EventSource.OPEN) {
-    console.log("Events Disconnected");
-  }
- }, false);
- 
- source.addEventListener('message', function(e) {
-  console.log("message", e.data);
- }, false);
- 
- source.addEventListener('level', function(e) {
-  console.log("temperature", e.data);
-  document.getElementById("level").innerHTML = e.data;
-     document.getElementById("levelProgress").value = e.data;
+  // Usage
+  const brokerUrl = 'wss://192.168.0.9:8081';
+  const clientId = 'gh-client';
+  const username = 'sanjai';
+  const password = 'rocky';
 
- }, false);
-}
+  const myHome = new Home(brokerUrl, clientId, username, password);
+
+  // Example event listener
+  myHome.on('homeassistant/sensor/water_level', (msg) => {
+    console.log('Received message on homeassistant/sensor/water_level:', msg);
+    document.getElementById("level").innerHTML = msg;
+    document.getElementById("levelProgress").value = msg;
+  });
+
+
 </script>
 </body>
 </html>
