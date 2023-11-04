@@ -96,13 +96,13 @@
 }
 
 // Example usage:
-const inputElement = document.getElementById(inputElementId);
+const inputElement = document.getElementById('inputElementId');
 const apiUrl = 'http://192.168.0.149/RELAY='; // Replace with the actual API endpoint
 
 inputElement.addEventListener('change', (e) => {
   // When the input element's state changes, call the function to toggle the button and make the API call
   myHome.publish('homeassistant/switch/water_motor', inputElement.checked ? "ON" : 'OFF' )
-  toggleButtonWithApi('motorswitchinput', apiUrl);
+  toggleButtonWithApi(inputElement, apiUrl);
 });
 
 
