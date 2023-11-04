@@ -49,14 +49,14 @@
   const myHome = new Home(brokerUrl, clientId, username, password);
 
   // Example event listener
-  myHome.on('homeassistant/sensor/water_level', (msg) => {
+  myHome.subscribe('homeassistant/sensor/water_level', (msg) => {
     console.log('Received message on homeassistant/sensor/water_level:', msg);
     // document.getElementById("level").innerHTML = msg;
     document.getElementById("levelProgress").value = msg;
   });
 
   // Example event listener
-  myHome.on('homeassistant/switch/water_motor', (msg) => {
+  myHome.subscribe('homeassistant/switch/water_motor', (msg) => {
     console.log('Received message on homeassistant/switch/water_motor:', msg);
     // document.getElementById("motorswitch").innerHTML = msg === 'ON' ? 'ON' : 'OFF';
     document.getElementById("motorswitchinput").value = msg === 'ON';
