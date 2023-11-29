@@ -58,13 +58,17 @@ Here, we will use Helm Chart to deploy KEDA.
 1.1 Add Keda Core Repo to Helm: First, we will add the kedacore repository to our Helm instance by executing the below command.
 
 `helm repo add kedacore https://kedacore.github.io/charts`
+
 1.2 Update Helm repo: Then, let’s fetch the information on the new kedacore repo that we added above:
 
 `helm repo update`
+
 1.3 Install keda Helm chart: Finally, we need to create a namespace for KEDA and install kedacore using Helm chart:
 
-`kubectl create namespace keda`
-`helm install keda kedacore/keda --namespace keda`
+```sh
+kubectl create namespace keda
+helm install keda kedacore/keda --namespace keda```
+
 Once the installation is successful, let’s verify whether the keda pods are up and running by executing the below command.
 
 `kubectl get deploy,crd -n keda`
