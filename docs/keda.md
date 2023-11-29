@@ -38,7 +38,8 @@ We will follow the below steps to illustrate, how we can leverage KEDA for auto-
   - Testing Auto-Scaling with Event Scaler
   - Deploying HTTP Scaler
   - Testing Auto-Scaling with HTTP Scaler
-  - Prerequisites
+  
+## Prerequisites
 
 Kubernetes cluster: We will need a running Kubernetes cluster. In case Kubernetes Cluster is not available then we can follow the instructions to Set Up a Kubernetes Cluster.
 Docker Hub Account: An account at Docker Hub for storing Docker images that we will create during this tutorial. Refer to the Docker Hub page for details about creating a new account.
@@ -56,19 +57,20 @@ Here, we will use Helm Chart to deploy KEDA.
 
 1.1 Add Keda Core Repo to Helm: First, we will add the kedacore repository to our Helm instance by executing the below command.
 
-helm repo add kedacore https://kedacore.github.io/charts
+`helm repo add kedacore https://kedacore.github.io/charts`
 1.2 Update Helm repo: Then, let’s fetch the information on the new kedacore repo that we added above:
 
-helm repo update
+`helm repo update`
 1.3 Install keda Helm chart: Finally, we need to create a namespace for KEDA and install kedacore using Helm chart:
 
-kubectl create namespace keda
-helm install keda kedacore/keda --namespace keda
+`kubectl create namespace keda`
+`helm install keda kedacore/keda --namespace keda`
 Once the installation is successful, let’s verify whether the keda pods are up and running by executing the below command.
 
-kubectl get deploy,crd -n keda
+`kubectl get deploy,crd -n keda`
 
-keda pods status
+![keda pods status](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dFaXEEYfre5XVfpJkjE0Cg.png)
+
 As we can see above in the image the keda pods are up and running.
 
 2. Deploying Sample Application
@@ -78,6 +80,7 @@ It’s time to deploy a demo application. Here, we will use the official latest 
 
 Deployment provides declarative updates for Pods and ReplicaSets. In Kubernetes, a deployment is a method of launching a pod with containerized applications and ensuring that the necessary number of replicas is always running on the cluster. Let’s create a file nginx-deployment.yaml with the below content for our sample application. The file contains the deployment details for our sample application.
 
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -98,20 +101,22 @@ spec:
       - name: nginx
         image: nginx:1.14.2
         ports:
-        - containerPort: 80 
+        - containerPort: 80
+```
+
 Now we will create the Deployment using the above file.
 
-kubectl apply -f nginx-deployment.yaml
+`kubectl apply -f nginx-deployment.yaml`
 Let’s check if the deployment was created successfully by executing the below command.
 
-kubectl get deployments
+`kubectl get deployments`
 
 deployment status
 As we can see above in the image our deployment is deployed successfully with one ReplicaSet.
 
 Let’s also check the status of the pod using the below command. Its status should be Running.
 
-kubectl get pods
+`kubectl get pods`
 
 pod status
 We can see that 1 instance of our pod is running that we have specified in our deployment configuration.
